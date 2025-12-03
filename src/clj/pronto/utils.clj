@@ -85,8 +85,11 @@
        (not (.isMapField fd))
        (not (.isRepeated fd))))
 
-(defn optional? [^Descriptors$FieldDescriptor fd]
+(defn deprecated-optional? [^Descriptors$FieldDescriptor fd]
   (.hasOptionalKeyword fd))
+
+(defn optional? [^Descriptors$FieldDescriptor fd]
+  (.hasPresence fd))
 
 (defn enum? [^Descriptors$FieldDescriptor fd]
   (= (.getType fd)
