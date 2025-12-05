@@ -7,7 +7,7 @@
     Descriptors$FieldDescriptor
     Descriptors$GenericDescriptor
     Descriptors$FieldDescriptor$Type
-    GeneratedMessageV3]))
+    GeneratedMessage]))
 
 
 (defn javaify [s] (s/replace s "-" "_"))
@@ -133,7 +133,7 @@
                  ;; No point to import POJO classes, and this can also
                  ;; lead to conflicts if 2 namespaces import 2 classes
                  ;; with the same name but different packages.
-                 :when (not= (.getSuperclass clazz) GeneratedMessageV3)
+                 :when (not= (.getSuperclass clazz) GeneratedMessage)
                  ;; don't import generated classes created by the lib, as this might
                  ;; lead to collision between different mappers when importing
                  ;; these classes into the global ns
